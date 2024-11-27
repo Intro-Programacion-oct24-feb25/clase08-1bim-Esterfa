@@ -17,18 +17,20 @@ public class Ejemplo02 {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
         entrada.useLocale(Locale.US);
-        String cadenaFinal = "";
+        String cadenaFinal = ""; //cadena vacia
         double nota;
         boolean bandera = true;
         String salida;
         do {
             System.out.println("Ingrese calificación");
             nota = entrada.nextDouble(); // 10.2
-            cadenaFinal = String.format("%s%.2f\n", cadenaFinal, nota);
+            cadenaFinal = String.format("%s%.2f\n", 
+                    cadenaFinal, 
+                    nota);
             entrada.nextLine(); // limpieza de buffer
 
             System.out.println("Ingrese (s) si desea salir del ciclo ");
-            salida = entrada.nextLine(); // si
+            salida = entrada.nextLine(); // si //salida es de tipo stream
             //   si == s == >
             if (salida.equals("s")) { // f
                 bandera = false;
