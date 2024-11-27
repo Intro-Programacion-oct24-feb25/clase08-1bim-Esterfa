@@ -7,6 +7,8 @@ Calificación 10 del estudiante rené
 Calificación 7 del estudiante rolando
 
 Promedio de calificaciones: 8,50
+
+Lista solo de noimbres
  */
 package ejemplos02;
 
@@ -24,7 +26,7 @@ public class Ejemplo09 {
         entrada.useLocale(Locale.US);
         
         String cadenaFinal;
-        int nota;
+        int nota = 0;
         int salida;
         String nombre; // *
         double promedio;
@@ -32,16 +34,29 @@ public class Ejemplo09 {
         int suma = 0;
         int contador_calificaciones = 0;
         
+        
         cadenaFinal = "Listado de Notas\n";
         
+        
         do {
+            System.out.println("Ingrese su nombre");
+            nombre = entrada.nextLine(); 
             
+            
+            System.out.println("Ingrese calificaciones, solo valor entero");
+            nota = entrada.nextInt(); 
             
             // agrego valor al acumulador
             suma = suma + nota;
             // agrego una unidad al contador para luego sacar el promedio
             contador_calificaciones = contador_calificaciones + 1;
             
+            // Calificación 10 del estudiante rené
+            // agrego valor a la cadena final
+            cadenaFinal = String.format("%sCalificación%d del estudiante%s\n",
+                    cadenaFinal,
+                    nota, 
+                    nombre.toLowerCase());// convierte en minusculas
             
             System.out.println("Ingrese (-111) si desea salir del ciclo; "
                     + "cualquier otro número para continuar");
@@ -51,8 +66,8 @@ public class Ejemplo09 {
                 bandera = false;
             }
             // atención
-            entrada.nextLine(); // se limpia el buffer, pues el primer valor
-                               // que se solicita al inicio del ciclo es una
+            entrada.nextLine();  // se limpia el buffer, pues el primer valor
+                                // que se solicita al inicio del ciclo es una
                                // cadena
 
         } while (bandera); // (bandera==true)
